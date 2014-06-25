@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debugging Javascript in 2014</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body class="container">
+  <div class="row">
+    <h1>Debugging Javascript in 2014 <small>Breakpoints</small></h1>
+  </div>
+
+  <div class="row">
+    <h3>XMLHttpRequest</h3>
+    <div id="js-xhr"></div>
+  </div>
+
+  <script src="js/printProps.js"></script>
+  <script src="js/ajax.js"></script>
+  <script>
+
+  (function (window) {
+
+    // window.isDebug = true;
+
+    function Application() {
+
+        function initialize(options) {
+          // use options to initialize stuff
+          doSomethingAwesome();
+        }
+
+        function doSomethingAwesome() {
+          // throw new Error('whoopsie');
+        }
+
+        function requestSomething() {
+          var req = new window.Ajax.Request('http://localhost:3000', {
+            error: onXhrComplete,
+            complete: onXhrComplete
+          });
+          req.start();
+        }
+
+        function onXhrComplete(xhr) {
+          debugger;
+        }
+
+        return {
+          initialize: initialize,
+          doSomethingAwesome: doSomethingAwesome,
+          requestSomething: requestSomething
+        };
+
+    };
+
+    var app = new Application();
+    app.initialize();
+    app.requestSomething();
+
+  })(window);
+
+  </script>
+</body>
+</html>
