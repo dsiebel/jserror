@@ -1,0 +1,30 @@
+error.html
+==========
+> Plain JavaScript
+> printProps => simple helper to print object propers recursively
+
+Firefox, Chrome, Internet Explorer
+new Error
+throw new Error
+(throw "My custom error")
+
+
+onerror.html
+============
+Firefox, Internet Explorer, >>>Chrome<<<
+good & sad:
+"only" 15 years of browser development to figure out that we might need the original error
+
+sync.html
+=========
+Firefox
+name anonymous functions => readable stacktraces
+
+async.html
+==========
+Firefox
+possible solutions:
+  safe callback wrapper
+  patching host functions
+  (me) no elegant solution, yet
+=> homework
